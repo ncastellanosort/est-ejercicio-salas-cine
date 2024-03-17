@@ -4,6 +4,7 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import ui.Pantalla;
 
 /**
@@ -23,12 +24,6 @@ public class Main {
         frame.setResizable(false);
         frame.setVisible(true);
 
-
-//        Peliculas peliculas = new Peliculas();
-//        
-//        peliculas.llenarMatrizPeliculas();
-//        
-//        peliculas.imprimirMatriz();
 
     }
 

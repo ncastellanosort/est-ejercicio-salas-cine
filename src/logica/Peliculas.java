@@ -4,34 +4,28 @@
  */
 package logica;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
  * @author Nicolas
  */
 public class Peliculas {
-    
-    public int[][] peliculas;
-    
+
+    public int[][] peliculas = new int[7][15];
+
+
     // Pasarle en el constructor la lista rellenada de una vez, para no crear metodos para rellenarla
-
     public Peliculas() {
-        
-         peliculas = new int[7][15];
-         
-         for (int i = 0; i < 7; ++i) {
-            for (int j = 0; j < 15; ++j) {
 
-                // Teniendo en cuenta que en promedio en una sala de cine hay 450 asientos
-                peliculas[i][j] = (int) (Math.random() * 450 + 150);
 
-            }
-
-        }
 
     }
 
-    
+    public int[][] obtenerMatriz() {
+        return peliculas;
+    }
 
     public void imprimirMatriz() {
 
@@ -47,8 +41,39 @@ public class Peliculas {
 
     }
     
-    public int[][] obtenerMatriz(){
+    public int[][] llenarMatriz(){
+
+        for (int i = 0; i < 7; ++i) {
+            for (int j = 0; j < 15; ++j) {
+
+                // Teniendo en cuenta que en promedio en una sala de cine hay 450 asientos
+                peliculas[i][j] = (int) (Math.random() * 450 + 150);
+
+
+            }
+
+        }
+        
         return peliculas;
+    
+    }
+    
+    public ArrayList<Integer> encontrarMaximosPorFila() {
+        ArrayList<Integer> maximosPorFila = new ArrayList<>();
+        for (int i = 0; i < 7; ++i) {
+            int maximo = peliculas[i][0]; // Inicializamos el máximo como el primer elemento de la fila
+            for (int j = 1; j < 15; ++j) {
+                if (peliculas[i][j] > maximo) {
+                    maximo = peliculas[i][j];
+                }
+            }
+            maximosPorFila.add(maximo); // Agregamos el máximo de la fila a la lista
+        }
+        return maximosPorFila;
+    }
+
+    public void mejorCombinacionMasVista() {
+
     }
 
 }
