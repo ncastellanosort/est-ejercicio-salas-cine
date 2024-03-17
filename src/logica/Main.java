@@ -17,18 +17,18 @@ public class Main {
      */
     public static void main(String[] args) {
 
-//        Pantalla frame = new Pantalla();
-//
-//        frame.setLocationRelativeTo(null);
-//        frame.setResizable(false);
-//        frame.setVisible(true);
+        Pantalla frame = new Pantalla();
+
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setVisible(true);
 
 
-        Peliculas peliculas = new Peliculas();
-        
-        peliculas.llenarMatrizPeliculas();
-        
-        peliculas.imprimirMatriz();
+//        Peliculas peliculas = new Peliculas();
+//        
+//        peliculas.llenarMatrizPeliculas();
+//        
+//        peliculas.imprimirMatriz();
 
     }
 

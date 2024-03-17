@@ -4,38 +4,39 @@
  */
 package logica;
 
-import java.util.ArrayList;
-import java.util.Random;
 
 /**
  *
  * @author Nicolas
  */
 public class Peliculas {
-
-    Random random = new Random();
+    
+    public int[][] peliculas;
+    
+    // Pasarle en el constructor la lista rellenada de una vez, para no crear metodos para rellenarla
 
     public Peliculas() {
+        
+         peliculas = new int[7][16];
+         
+         for (int i = 0; i < 7; ++i) {
+            for (int j = 0; j < 16; ++j) {
 
-    }
-
-    private int[][] peliculas = new int[7][15];
-
-    public void llenarMatrizPeliculas() {
-        for (int i = 0; i < 7; ++i) {
-            for (int j = 0; j < 15; ++j) {
-
-                peliculas[i][j] = random.nextInt(0, 460);
+                // Teniendo en cuenta que en promedio en una sala de cine hay 450 asientos
+                peliculas[i][j] = (int) (Math.random() * 450 + 150);
 
             }
 
         }
+
     }
 
+    
+
     public void imprimirMatriz() {
-        
+
         for (int i = 0; i < 7; ++i) {
-            for (int j = 0; j < 15; ++j) {
+            for (int j = 0; j < 16; ++j) {
 
                 System.out.print(peliculas[i][j] + "\t");
 
@@ -44,6 +45,10 @@ public class Peliculas {
 
         }
 
+    }
+    
+    public int[][] obtenerMatriz(){
+        return peliculas;
     }
 
 }
