@@ -6,6 +6,7 @@ package logica;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -75,5 +76,6 @@ public class Peliculas {
     public void mejorCombinacionMasVista() {
 
     }
+
 
 }
