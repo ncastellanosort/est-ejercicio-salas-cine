@@ -4,6 +4,8 @@
  */
 package logica;
 
+import ui.Pantalla;
+
 /**
  *
  * @author Nicolas
@@ -14,10 +16,20 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+//        Pantalla frame = new Pantalla();
+//
+//        frame.setLocationRelativeTo(null);
+//        frame.setResizable(false);
+//        frame.setVisible(true);
+
+
+        Peliculas peliculas = new Peliculas();
         
+        peliculas.llenarMatrizPeliculas();
         
-        
-        
+        peliculas.imprimirMatriz();
+
     }
-    
+
 }
