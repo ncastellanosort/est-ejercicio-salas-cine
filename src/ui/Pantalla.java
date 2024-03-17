@@ -195,10 +195,9 @@ public class Pantalla extends javax.swing.JFrame {
 
         // ----------------------------------------------------------------
         // ----------------COMBINACION MEJOR SALA-PELICULA---------------------
-        
         // encontrar el indice de la fila donde esta el  elemento
         int filaIndice = 0;
-        
+
         int[] masVistasEspectadoresCombinacion = peliculasMasVistasPorFila();
         Arrays.sort(masVistasEspectadoresCombinacion);
 
@@ -213,18 +212,18 @@ public class Pantalla extends javax.swing.JFrame {
 
 //                System.out.print(value + "\t");
                 if (value == mayor) {
-                    
+
                     // va a ser i(filas), hasta que lo encuentre
                     filaIndice = i;
-                    
+
                     System.out.println(filaIndice);
+
+                    // +1 para que no coja el cero
                     lbNumeroSalaCombinacion.setText("Sala " + Integer.toString(filaIndice + 1));
-                    
-                    
-                    
+
                     // el indice de la columna donde esta el valor mayor
                     lbNumeroPeliculaCombinacion.setText(tablaPeliculas.getColumnName(j));
-                    
+
                     // el valor que es igual al mayor
                     lbNumeroEspectadoresCombiacion.setText(Integer.toString(value));
 
@@ -436,8 +435,11 @@ public class Pantalla extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(24, 24, 24));
 
+        tablaPeliculas.setBackground(new java.awt.Color(255, 255, 102));
+        tablaPeliculas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tablaPeliculas.setForeground(new java.awt.Color(0, 0, 0));
         tablaPeliculas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -449,36 +451,43 @@ public class Pantalla extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaPeliculas.setFocusable(false);
+        tablaPeliculas.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaPeliculas.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        tablaPeliculas.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane2.setViewportView(tablaPeliculas);
 
+        jLabel1.setBackground(new java.awt.Color(0, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
         jLabel1.setText("CINEMAX");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("# Personas");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("que asistieron");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("a ver la pelicula");
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 102));
         jLabel5.setText("Pelicula mas vista de todas las salas");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 102));
         jLabel6.setText("Pelicula menos vista de todas las salas");
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setForeground(new java.awt.Color(255, 255, 102));
         jLabel15.setText("Combinacion sala-pelicula mas vista");
 
+        tablaPeliculasMenosVistas.setBackground(new java.awt.Color(255, 255, 102));
+        tablaPeliculasMenosVistas.setForeground(new java.awt.Color(0, 0, 0));
         tablaPeliculasMenosVistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -508,11 +517,15 @@ public class Pantalla extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaPeliculasMenosVistas.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaPeliculasMenosVistas.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        tablaPeliculasMenosVistas.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(tablaPeliculasMenosVistas);
         if (tablaPeliculasMenosVistas.getColumnModel().getColumnCount() > 0) {
             tablaPeliculasMenosVistas.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        tablaPeliculasMasVistas.setBackground(new java.awt.Color(255, 255, 102));
         tablaPeliculasMasVistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -542,11 +555,16 @@ public class Pantalla extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaPeliculasMasVistas.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaPeliculasMasVistas.setSelectionBackground(new java.awt.Color(255, 153, 51));
+        tablaPeliculasMasVistas.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane5.setViewportView(tablaPeliculasMasVistas);
         if (tablaPeliculasMasVistas.getColumnModel().getColumnCount() > 0) {
             tablaPeliculasMasVistas.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        tablaNombrePeliculasMasVistas.setBackground(new java.awt.Color(255, 255, 102));
+        tablaNombrePeliculasMasVistas.setForeground(new java.awt.Color(0, 0, 0));
         tablaNombrePeliculasMasVistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -576,11 +594,16 @@ public class Pantalla extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaNombrePeliculasMasVistas.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaNombrePeliculasMasVistas.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        tablaNombrePeliculasMasVistas.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane3.setViewportView(tablaNombrePeliculasMasVistas);
         if (tablaNombrePeliculasMasVistas.getColumnModel().getColumnCount() > 0) {
             tablaNombrePeliculasMasVistas.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        tablaNombrePeliculasMenosVistas.setBackground(new java.awt.Color(255, 255, 102));
+        tablaNombrePeliculasMenosVistas.setForeground(new java.awt.Color(0, 0, 0));
         tablaNombrePeliculasMenosVistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -610,11 +633,15 @@ public class Pantalla extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaNombrePeliculasMenosVistas.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaNombrePeliculasMenosVistas.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        tablaNombrePeliculasMenosVistas.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane4.setViewportView(tablaNombrePeliculasMenosVistas);
         if (tablaNombrePeliculasMenosVistas.getColumnModel().getColumnCount() > 0) {
             tablaNombrePeliculasMenosVistas.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        tablaSalas1.setBackground(new java.awt.Color(255, 204, 0));
         tablaSalas1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -644,11 +671,17 @@ public class Pantalla extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaSalas1.setFocusable(false);
+        tablaSalas1.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaSalas1.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        tablaSalas1.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane6.setViewportView(tablaSalas1);
         if (tablaSalas1.getColumnModel().getColumnCount() > 0) {
             tablaSalas1.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        tablaSalas2.setBackground(new java.awt.Color(255, 204, 0));
+        tablaSalas2.setForeground(new java.awt.Color(0, 0, 0));
         tablaSalas2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -678,11 +711,16 @@ public class Pantalla extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaSalas2.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaSalas2.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        tablaSalas2.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane7.setViewportView(tablaSalas2);
         if (tablaSalas2.getColumnModel().getColumnCount() > 0) {
             tablaSalas2.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        tablaSalas3.setBackground(new java.awt.Color(255, 204, 51));
+        tablaSalas3.setForeground(new java.awt.Color(0, 0, 0));
         tablaSalas3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -705,30 +743,33 @@ public class Pantalla extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tablaSalas3.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaSalas3.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        tablaSalas3.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane8.setViewportView(tablaSalas3);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 153));
         jLabel7.setText("N. Sala:");
 
         lbNumeroPeliculaCombinacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lbNumeroPeliculaCombinacion.setForeground(new java.awt.Color(0, 0, 0));
+        lbNumeroPeliculaCombinacion.setForeground(new java.awt.Color(255, 255, 255));
         lbNumeroPeliculaCombinacion.setText("Aca el numero de pelicula");
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 153));
         jLabel9.setText("Cantidad de espectadores: ");
 
         lbNumeroSalaCombinacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lbNumeroSalaCombinacion.setForeground(new java.awt.Color(0, 0, 0));
+        lbNumeroSalaCombinacion.setForeground(new java.awt.Color(255, 255, 255));
         lbNumeroSalaCombinacion.setText("Aca va a ir el numero de sala");
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 153));
         jLabel11.setText("N. Pelicula:");
 
         lbNumeroEspectadoresCombiacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lbNumeroEspectadoresCombiacion.setForeground(new java.awt.Color(0, 0, 0));
+        lbNumeroEspectadoresCombiacion.setForeground(new java.awt.Color(255, 255, 255));
         lbNumeroEspectadoresCombiacion.setText("C esp");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

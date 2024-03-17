@@ -4,9 +4,6 @@
  */
 package logica;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -54,18 +51,5 @@ public class Peliculas {
 
     }
 
-    public ArrayList<Integer> encontrarMaximosPorFila() {
-        ArrayList<Integer> maximosPorFila = new ArrayList<>();
-        for (int i = 0; i < 7; ++i) {
-            int maximo = peliculas[i][0]; // Inicializamos el máximo como el primer elemento de la fila
-            for (int j = 1; j < 15; ++j) {
-                if (peliculas[i][j] > maximo) {
-                    maximo = peliculas[i][j];
-                }
-            }
-            maximosPorFila.add(maximo); // Agregamos el máximo de la fila a la lista
-        }
-        return maximosPorFila;
-    }
 
 }
