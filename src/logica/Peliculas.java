@@ -16,11 +16,7 @@ public class Peliculas {
 
     public int[][] peliculas = new int[7][15];
 
-
-    // Pasarle en el constructor la lista rellenada de una vez, para no crear metodos para rellenarla
     public Peliculas() {
-
-
 
     }
 
@@ -41,8 +37,8 @@ public class Peliculas {
         }
 
     }
-    
-    public int[][] llenarMatriz(){
+
+    public int[][] llenarMatriz() {
 
         for (int i = 0; i < 7; ++i) {
             for (int j = 0; j < 15; ++j) {
@@ -50,15 +46,14 @@ public class Peliculas {
                 // Teniendo en cuenta que en promedio en una sala de cine hay 450 asientos
                 peliculas[i][j] = (int) (Math.random() * 450 + 150);
 
-
             }
 
         }
-        
+
         return peliculas;
-    
+
     }
-    
+
     public ArrayList<Integer> encontrarMaximosPorFila() {
         ArrayList<Integer> maximosPorFila = new ArrayList<>();
         for (int i = 0; i < 7; ++i) {
@@ -72,10 +67,5 @@ public class Peliculas {
         }
         return maximosPorFila;
     }
-
-    public void mejorCombinacionMasVista() {
-
-    }
-
 
 }

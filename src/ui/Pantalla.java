@@ -54,7 +54,7 @@ public class Pantalla extends javax.swing.JFrame {
         }
 
         // Tabla salas 1
-        tablaSalas1.setRowHeight(22);
+        tablaSalas1.setRowHeight(35);
 
         for (int i = 0; i < 1; i++) {
             modeloTablaSalas1.addRow(new String[7]);
@@ -69,9 +69,9 @@ public class Pantalla extends javax.swing.JFrame {
 
             }
         }
-        
+
         // Tabla salas 2
-        tablaSalas2.setRowHeight(22);
+        tablaSalas2.setRowHeight(35);
 
         for (int i = 0; i < 1; i++) {
             modeloTablaSalas2.addRow(new String[7]);
@@ -86,9 +86,9 @@ public class Pantalla extends javax.swing.JFrame {
 
             }
         }
-        
+
         // Tabla salas 3
-        tablaSalas3.setRowHeight(22);
+        tablaSalas3.setRowHeight(35);
 
         for (int i = 0; i < 1; i++) {
             modeloTablaSalas3.addRow(new String[7]);
@@ -107,14 +107,15 @@ public class Pantalla extends javax.swing.JFrame {
         String[] peliculas = new String[15];
 
         for (int i = 0; i < peliculas.length; ++i) {
-            peliculas[i] = "Pelicula " + (i + 1);
+            peliculas[i] = "Pelicula " + (i + 1) ;
 
         }
 
         modeloTablaPeliculas.setColumnIdentifiers(peliculas);
 
         tablaPeliculas.setModel(modeloTablaPeliculas);
-        tablaPeliculas.setRowHeight(22);
+        tablaPeliculas.setRowHeight(35);
+        
 
         // 7 filas
         // Por cada fila va a agregar 15 columnas
@@ -125,7 +126,7 @@ public class Pantalla extends javax.swing.JFrame {
         llenarTablaPeliculas();
 
         // -----------------MAS VISTAS--------------------- 
-        tablaPeliculasMasVistas.setRowHeight(22);
+        tablaPeliculasMasVistas.setRowHeight(35);
 
         for (int i = 0; i < 1; i++) {
             modeloTablaPeliculaMasVista.addRow(new Integer[7]);
@@ -135,7 +136,7 @@ public class Pantalla extends javax.swing.JFrame {
 
         // ----------------------------------------------------------------
         // -----------------MENOS VISTAS---------------------
-        tablaPeliculasMenosVistas.setRowHeight(22);
+        tablaPeliculasMenosVistas.setRowHeight(35);
 
         for (int i = 0; i < 1; i++) {
             modeloTablaPeliculaMenosVista.addRow(new Integer[7]);
@@ -152,7 +153,7 @@ public class Pantalla extends javax.swing.JFrame {
 //            System.out.println(masVistastitulo[i]);
 //        }
 
-        tablaNombrePeliculasMasVistas.setRowHeight(22);
+        tablaNombrePeliculasMasVistas.setRowHeight(35);
 
         for (int i = 0; i < 1; i++) {
             modeloTablaNombrePeliculaMasVista.addRow(new String[7]);
@@ -176,7 +177,7 @@ public class Pantalla extends javax.swing.JFrame {
 //        for (int i = 0; i < menosVistastitulo.length; ++i) {
 //            System.out.println(menosVistastitulo[i]);
 //        }
-        tablaNombrePeliculasMenosVistas.setRowHeight(22);
+        tablaNombrePeliculasMenosVistas.setRowHeight(35);
 
         for (int i = 0; i < 1; i++) {
             modeloTablaNombrePeliculaMenosVista.addRow(new String[7]);
@@ -196,6 +197,22 @@ public class Pantalla extends javax.swing.JFrame {
     }
 
     // -------------------------FUNCIONES-------------------------------------
+    
+    // ----------------LLENAR LA TABLA DE PELICULAS-------------------------
+    public void llenarTablaPeliculas() {
+
+        for (int i = 0; i < tablaPeliculas.getRowCount(); ++i) {
+
+            for (int j = 0; j < tablaPeliculas.getColumnCount(); ++j) {
+
+                // Llenarlo con los valores de la matriz
+                tablaPeliculas.setValueAt(matrizPeliculas[i][j], i, j);
+
+            }
+        }
+    }
+    
+    // --------------------NOMBRE PELICULAS MAS VISTAS-------------------------------------
     public void obtenerNombrePeliculaMasVistas(String[] listaPelis) {
 
         for (int i = 0; i < tablaPeliculas.getRowCount(); ++i) {
@@ -223,7 +240,8 @@ public class Pantalla extends javax.swing.JFrame {
         }
 
     }
-
+    
+    // --------------------NOMBRE PELICULAS MENOS VISTAS-------------------------------------
     public void obtenerNombrePeliculaMenosVistas(String[] listaPelis) {
 
         for (int i = 0; i < tablaPeliculas.getRowCount(); ++i) {
@@ -252,18 +270,6 @@ public class Pantalla extends javax.swing.JFrame {
 
     }
 
-    public void llenarTablaPeliculas() {
-
-        for (int i = 0; i < tablaPeliculas.getRowCount(); ++i) {
-
-            for (int j = 0; j < tablaPeliculas.getColumnCount(); ++j) {
-
-                // Llenarlo con los valores de la matriz
-                tablaPeliculas.setValueAt(matrizPeliculas[i][j], i, j);
-
-            }
-        }
-    }
 
     // --------------------PELICULAS MAS VISTAS------------------
     public void llenarTablaPeliculaMasVistas() {
@@ -278,11 +284,8 @@ public class Pantalla extends javax.swing.JFrame {
             }
         }
     }
-
-    public void llenarTablaTituloPeliculaMasVistas() {
-
-    }
-
+    
+    // --------------------PELICULAS MENOS VISTAS------------------
     public void llenarTablaPeliculaMenosVistas() {
 
         for (int i = 0; i < tablaPeliculasMenosVistas.getRowCount(); ++i) {
@@ -295,7 +298,8 @@ public class Pantalla extends javax.swing.JFrame {
             }
         }
     }
-
+    
+    // -----------------LISTA CON PELICULAS CON MAS ESPECTADORES-------------------
     public int[] peliculasMasVistasPorFila() {
 
         // ArrayList donde van a estar todos los valores de las peliculas con mas vistas
@@ -324,6 +328,8 @@ public class Pantalla extends javax.swing.JFrame {
         return masVistas;
 
     }
+    
+    // -----------------LISTA CON PELICULAS CON MENOS ESPECTADORES-------------------
 
     public int[] peliculasMenosVistasPorFila() {
 
@@ -348,6 +354,12 @@ public class Pantalla extends javax.swing.JFrame {
         return menosVistas;
 
     }
+    
+    // -------------------------------------------------------------------------
+    // -----------------------COMBINACION-TABLA-PELICULA---------------------
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -425,7 +437,7 @@ public class Pantalla extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Pelicula menos vista de todas las salas");
 
-        jLabel15.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Combinacion sala-pelicula mas vista");
 
@@ -664,80 +676,77 @@ public class Pantalla extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(636, 636, 636)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1046, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel5)))
+                                .addGap(76, 76, 76)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel15))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1046, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)))
-                        .addGap(106, 106, 106)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel6)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)))
-                        .addGap(164, 164, 164)
-                        .addComponent(jLabel15)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addGap(628, 628, 628)
+                        .addComponent(jLabel1)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(164, 164, 164)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel1)
-                                .addGap(59, 59, 59)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(59, 59, 59))
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel1)
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(364, 364, 364)
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                        .addGap(218, 218, 218)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(310, 310, 310))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
