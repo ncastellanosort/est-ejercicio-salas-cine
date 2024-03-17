@@ -144,6 +144,8 @@ public class Pantalla extends javax.swing.JFrame {
                 }
 
             }
+            
+            
             // Lo agrega
             masVistas[i] = mayor;
         }
