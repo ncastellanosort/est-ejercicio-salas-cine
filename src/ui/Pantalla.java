@@ -195,6 +195,10 @@ public class Pantalla extends javax.swing.JFrame {
 
         // ----------------------------------------------------------------
         // ----------------COMBINACION MEJOR SALA-PELICULA---------------------
+        
+        // encontrar el indice de la fila donde esta el  elemento
+        int filaIndice = 0;
+        
         int[] masVistasEspectadoresCombinacion = peliculasMasVistasPorFila();
         Arrays.sort(masVistasEspectadoresCombinacion);
 
@@ -209,6 +213,14 @@ public class Pantalla extends javax.swing.JFrame {
 
 //                System.out.print(value + "\t");
                 if (value == mayor) {
+                    
+                    // va a ser i(filas), hasta que lo encuentre
+                    filaIndice = i;
+                    
+                    System.out.println(filaIndice);
+                    lbNumeroSalaCombinacion.setText("Sala " + Integer.toString(filaIndice + 1));
+                    
+                    
                     
                     // el indice de la columna donde esta el valor mayor
                     lbNumeroPeliculaCombinacion.setText(tablaPeliculas.getColumnName(j));
