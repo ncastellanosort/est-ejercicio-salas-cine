@@ -17,10 +17,10 @@ public class Peliculas {
 
     public Peliculas() {
         
-         peliculas = new int[7][16];
+         peliculas = new int[7][15];
          
          for (int i = 0; i < 7; ++i) {
-            for (int j = 0; j < 16; ++j) {
+            for (int j = 0; j < 15; ++j) {
 
                 // Teniendo en cuenta que en promedio en una sala de cine hay 450 asientos
                 peliculas[i][j] = (int) (Math.random() * 450 + 150);
@@ -36,7 +36,7 @@ public class Peliculas {
     public void imprimirMatriz() {
 
         for (int i = 0; i < 7; ++i) {
-            for (int j = 0; j < 16; ++j) {
+            for (int j = 0; j < 15; ++j) {
 
                 System.out.print(peliculas[i][j] + "\t");
 
