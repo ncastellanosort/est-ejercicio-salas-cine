@@ -34,15 +34,18 @@ public class Pantalla extends javax.swing.JFrame {
 
     int[] masVistas = peliculasMasVistasPorFila();
 
-    // MAS VISTAS NOMBRE
+    // ------------------MAS VISTAS NOMBRE---------------------
     DefaultTableModel modeloTablaNombrePeliculaMasVista = new DefaultTableModel();
 
     // -------------------MENOS VISTAS---------------------------
     DefaultTableModel modeloTablaPeliculaMenosVista = new DefaultTableModel();
+    
+    int[] menosVistas = peliculasMenosVistasPorFila();
 
+    // ------------------MENOS VISTAS NOMBRE---------------------
     DefaultTableModel modeloTablaNombrePeliculaMenosVista = new DefaultTableModel();
 
-    int[] menosVistas = peliculasMenosVistasPorFila();
+    
 
     public Pantalla() {
         initComponents();
@@ -335,11 +338,11 @@ public class Pantalla extends javax.swing.JFrame {
             }
         }
     }
-
+    
     // -----------------LISTA CON PELICULAS CON MAS ESPECTADORES-------------------
     public int[] peliculasMasVistasPorFila() {
 
-        // ArrayList donde van a estar todos los valores de las peliculas con mas vistas
+        // array donde van a estar todos los valores de las peliculas con mas vistas
         int[] masVistas = new int[7];
 
         for (int i = 0; i < 7; ++i) {

@@ -13,27 +13,12 @@ public class Peliculas {
 
     public int[][] peliculas = new int[7][15];
 
-    public Peliculas() {
-
-    }
 
     public int[][] obtenerMatriz() {
         return peliculas;
     }
 
-    public void imprimirMatriz() {
-
-        for (int i = 0; i < 7; ++i) {
-            for (int j = 0; j < 15; ++j) {
-
-                System.out.print(peliculas[i][j] + "\t");
-
-            }
-            System.out.println(" ");
-
-        }
-
-    }
+    
 
     public int[][] llenarMatriz() {
 
